@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
@@ -15,10 +16,10 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
-
+Route::match(['get', 'post'], 'register', [RegisterController::class, 'handle']);
 
 Route::get('admin', [AdminController::class, 'index'])->name('boss');
 

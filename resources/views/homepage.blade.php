@@ -11,5 +11,12 @@
     <header>
         <a href="./login.blade.php">Login</a>
     </header>
+<main>
+    <h2>Welcome to the new Stackoverflow!</h2>
+    <p>
+        Sign up and start creating tickets with your technical questions! We have multiple agents that will handle your tickets or pass them on to more
+        experienced agents.
+    </p>
+</main>
 </body>
 </html>
