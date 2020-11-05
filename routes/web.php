@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::match(['get', 'post'], 'register', [RegisterController::class, 'handle']);
+Route::match(['get', 'post'], '/register', [RegisterController::class, 'handle']);
 
 Route::get('admin', [AdminController::class, 'index'])->name('boss');
 

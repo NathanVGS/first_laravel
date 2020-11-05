@@ -10,9 +10,9 @@ class RegisterController extends Controller
     public static function handle(Request $request)
     {
         if($request->method()==="GET"){
-            self::get();
+            return self::get();
         } else if ($request->method()==="POST"){
-            self::post();
+            return self::post();
         }
     }
 
@@ -23,6 +23,6 @@ class RegisterController extends Controller
 
     private static function post()
     {
-
+        return "something was submitted!";
     }
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
 <form action="#" method="post">
+    @csrf
     Email: <input type="text"><br>
     Password: <input type="password"><br>
     <button type="submit">Register</button>
