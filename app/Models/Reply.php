@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Reply extends Model
 {
     use HasFactory;
 
@@ -14,9 +14,13 @@ class Ticket extends Model
     private \DateTimeImmutable $lastModified;
     private User $author;
 
-    public function replies()
+    public function author()
     {
-        return $this->hasMany('App\Model\Reply');
+        return $this->belongsTo('App\Model\User');
     }
 
+    public function ticket()
+    {
+        return $this->belongsTo('App\Model\Ticket');
+    }
 }

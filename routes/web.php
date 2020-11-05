@@ -20,4 +20,10 @@ Route::get('/', function () {
 
 
 
-Route::get('admin', [AdminController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index'])->name('boss');
+
+Route::get('hello', function() { return "<h1>HELLO</h1>"; });
+Route::get('hello/{name}', function($name = '') {
+    $name = strtoupper($name);
+    return "<h1>HELLO $name</h1>";
+});
