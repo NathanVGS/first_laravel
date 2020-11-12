@@ -9,5 +9,11 @@
 </head>
 <body>
 <h2>Login</h2>
+<hr>
+<form action="POST">
+    email: <input type="text"><br>
+    password: <input type="password"><br>
+    <input type="submit" value="log in">
+</form>
 </body>
 </html>

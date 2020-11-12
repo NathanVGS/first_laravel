@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -11,8 +12,10 @@ class RegisterController extends Controller
     {
         if($request->method()==="GET"){
             return self::get();
-        } else if ($request->method()==="POST"){
-            return self::post();
+        }
+
+        if ($request->method()==="POST"){
+            return self::post($request);
         }
     }
 
@@ -21,8 +24,14 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    private static function post()
+    private static function post($request)
     {
+        $user = new User;
+        $user->setPassword($request->input('password'));
+        $user->setEmail($request->input('email'));
+        $user->setUserName($request->input('userName'));
+        $user->save();
         return "something was submitted!";
     }
 }
+

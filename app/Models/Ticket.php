@@ -9,11 +9,13 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    private string $content;
-    private string $title;
-    private \DateTimeImmutable $creationTime;
-    private \DateTimeImmutable $lastModified;
-    private User $author;
+    //private string $content;
+    //private string $title;
+    //private \DateTimeImmutable $creationTime;
+    //private \DateTimeImmutable $lastModified;
+    //private User $author;
+
+
 
     public function replies()
     {

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href="./login.blade.php">Login</a>
+        <a href="/login">Login</a>
     </header>
 <main>
     <h2>Welcome to the new Stackoverflow!</h2>

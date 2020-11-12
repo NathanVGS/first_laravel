@@ -4,12 +4,85 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
-class User extends Authenticatable
+//class User extends Authenticatable
+//???
+class User extends Model
 {
     use HasFactory, Notifiable;
+
+    protected $attributes = [
+        'userName' => 'Anonymous User',
+    ];
+    //private string $email;
+    //private string $password;
+    //private string $userName = "Anonymous User";
+
+
+    /**
+     * Boot function from laravel.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->{$model->getKeyName()} = Str::uuid()->toString();
+        });
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getUserName(): string
+    {
+        return $this->userName;
+    }
+
+    /**
+     * @param string $userName
+     */
+    public function setUserName(string $userName): void
+    {
+        $this->userName = $userName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -17,6 +90,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'userName',
         'name',
         'email',
         'password',

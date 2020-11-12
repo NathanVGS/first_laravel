@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::match(['get', 'post'], '/register', [RegisterController::class, 'handle']);
 
 Route::get('admin', [AdminController::class, 'index'])->name('boss');
+Route::get('login', function(){
+    return view('login');
+});
 
 Route::get('hello', function() { return "<h1>HELLO</h1>"; });
 Route::get('hello/{name}', function($name = '') {

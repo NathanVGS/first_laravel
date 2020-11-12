@@ -10,8 +10,9 @@
 <body>
 <form action="#" method="post">
     @csrf
-    Email: <input type="text"><br>
-    Password: <input type="password"><br>
+    Pick Username: <input name="userName" type="text"><br>
+    Email: <input name="email" type="text"><br>
+    Password: <input name="password" type="password"><br>
     <button type="submit">Register</button>
 </form>
 </body>
