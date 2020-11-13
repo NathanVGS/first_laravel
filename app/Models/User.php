@@ -18,9 +18,6 @@ class User extends Model
     protected $attributes = [
         'userName' => 'Anonymous User',
     ];
-    //private string $email;
-    //private string $password;
-    //private string $userName = "Anonymous User";
 
 
     /**
@@ -35,60 +32,6 @@ class User extends Model
         });
     }
 
-
-    /**
-     * @return string
-     */
-    public function getUserName(): string
-    {
-        return $this->userName;
-    }
-
-    /**
-     * @param string $userName
-     */
-    public function setUserName(string $userName): void
-    {
-        $this->userName = $userName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'userName',
         'name',
@@ -182,6 +125,11 @@ class User extends Model
     public function tickets()
     {
         return $this->hasMany('App\Model\Ticket');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Models\Reply');
     }
 }
 

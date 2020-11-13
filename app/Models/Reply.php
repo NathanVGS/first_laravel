@@ -9,10 +9,9 @@ class Reply extends Model
 {
     use HasFactory;
 
-    private string $content;
-    private \DateTimeImmutable $creationTime;
-    private \DateTimeImmutable $lastModified;
-    private User $author;
+    protected $fillable = [
+        'content'
+    ];
 
     public function author()
     {
