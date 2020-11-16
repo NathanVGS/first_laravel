@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-
+<h2>Welcome to the admin homepage!</h2>
 </body>
 </html>

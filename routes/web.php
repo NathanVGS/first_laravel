@@ -18,10 +18,24 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('homepage');
 });
+//set permissions!
+Route::get('/admin', function () {
+    return view('admin/index');
+});
+Route::get('/user', function () {
+    return view('user/index');
+});
+Route::get('/agent', function () {
+    return view('agent/index');
+});
+Route::get('/expert', function () {
+    return view('experte1993
+    /index');
+});
 
 Route::match(['get', 'post'], '/register', [RegisterController::class, 'handle']);
 
-Route::get('admin', [AdminController::class, 'index'])->name('boss');
+//Route::get('admin', [AdminController::class, 'index'])->name('boss');
 Route::get('login', function(){
     return view('login');
 });

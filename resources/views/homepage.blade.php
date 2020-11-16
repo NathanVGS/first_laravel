@@ -10,6 +10,7 @@
 <body>
     <header>
         <a href="/login">Login</a>
+        <a href="/register">Register</a>
     </header>
 <main>
     <h2>Welcome to the new Stackoverflow!</h2>

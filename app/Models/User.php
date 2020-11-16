@@ -16,27 +16,26 @@ class User extends Model
     use HasFactory, Notifiable;
 
     protected $attributes = [
-        'userName' => 'Anonymous User',
+        'name' => 'Anonymous User',
     ];
-
 
     /**
      * Boot function from laravel.
      */
-    protected static function boot()
+   /* protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($model) {
             $model->{$model->getKeyName()} = Str::uuid()->toString();
         });
-    }
+    }*/
 
     protected $fillable = [
-        'userName',
         'name',
         'email',
         'password',
+        'roles'
     ];
 
     /**

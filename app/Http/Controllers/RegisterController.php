@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class RegisterController extends Controller
 {
@@ -26,10 +28,13 @@ class RegisterController extends Controller
 
     private static function post($request)
     {
-        $user = new User;
-        $user->setPassword($request->input('password'));
-        $user->setEmail($request->input('email'));
-        $user->setUserName($request->input('userName'));
+        $user = new User();
+        $user->fill([
+            'name' => $request->userName,
+            'password' => Hash::make($request->password),
+            'email' => $request->email,
+            'roles' => ['ROLE_REGISTERED']
+        ]);
         $user->save();
         return "something was submitted!";
     }
