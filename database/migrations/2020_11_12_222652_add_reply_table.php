@@ -13,7 +13,11 @@ class AddReplyTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('replies', function (Blueprint $table) {
+            $table->id();
+            $table->string('content');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class AddReplyTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('replies');
     }
 }

@@ -40,6 +40,7 @@ Route::get('login', function(){
     return view('login');
 });
 
+
 Route::get('hello', function() { return "<h1>HELLO</h1>"; });
 Route::get('hello/{name}', function($name = '') {
     $name = strtoupper($name);

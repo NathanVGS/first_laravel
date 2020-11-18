@@ -13,7 +13,12 @@ class AddTicketTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('content');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class AddTicketTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tickets');
     }
 }
